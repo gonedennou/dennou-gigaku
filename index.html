@@ -1,43 +1,1232 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#050705" />
-<meta name="description" content="電脳義学 — 音楽を通じて学び、繋がり、成長する。「学び」をテーマにしたDJイベント／カルチャープロジェクト。" />
-<meta property="og:title" content="電脳義学 | DENNOU GIGAKU" />
-<meta property="og:description" content="音楽を通じて学び、繋がり、成長する。" />
-<meta property="og:type" content="website" />
-<title>電脳義学 | DENNOU GIGAKU</title>
-<style>
-:root{--bg:#050705;--panel:#090c09;--panel2:#0d100d;--ink:#f2f4f2;--muted:#9ba49b;--green:#26ff19;--red:#ff2424;--line:#243024;--max:1180px;--shadow-g:0 0 28px rgba(38,255,25,.20);--shadow-r:0 0 26px rgba(255,36,36,.16);}
-@keyframes gridDrift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-2%,1%,0) scale(1.02)}100%{transform:translate3d(2%,-1%,0) scale(1.04)}}@keyframes scanFlicker{0%,100%{opacity:.07}49%{opacity:.05}50%{opacity:.09}}@keyframes glitchMove{0%,100%{transform:translate(0,0)}20%{transform:translate(.5px,-.5px)}40%{transform:translate(-.7px,.4px)}60%{transform:translate(.8px,.3px)}80%{transform:translate(-.4px,-.4px)}}*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;color:var(--ink);background:radial-gradient(circle at 14% -8%,rgba(38,255,25,.09),transparent 32rem),radial-gradient(circle at 92% 20%,rgba(255,36,36,.07),transparent 32rem),var(--bg);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:-10%;pointer-events:none;z-index:-1;opacity:.75;background:radial-gradient(circle at 20% 20%,rgba(38,255,25,.08),transparent 18rem),radial-gradient(circle at 80% 15%,rgba(255,36,36,.06),transparent 20rem),radial-gradient(circle at 60% 78%,rgba(38,255,25,.05),transparent 16rem),repeating-linear-gradient(90deg,rgba(38,255,25,.035) 0 1px,transparent 1px 72px),repeating-linear-gradient(0deg,rgba(38,255,25,.025) 0 1px,transparent 1px 72px);transform:translate3d(0,0,0);animation:gridDrift 24s linear infinite alternate}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.07;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,#fff 4px);mix-blend-mode:overlay;animation:scanFlicker 8s steps(2) infinite}
-a{color:inherit;text-decoration:none}.wrap{width:min(calc(100% - 40px),var(--max));margin:auto}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.eyebrow{font:800 .76rem ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--green);letter-spacing:.20em;text-transform:uppercase}.section{padding:110px 0;position:relative}.section+.section{border-top:1px solid rgba(38,255,20,.09)}.section-title{margin:10px 0 26px;font-weight:1000;font-size:clamp(2.2rem,5vw,4.9rem);line-height:1;letter-spacing:-.045em}.section-lead{max-width:760px;color:#bbc2bb;margin:0 0 42px}
-header{height:68px;position:fixed;top:0;left:0;right:0;z-index:80;background:rgba(5,7,5,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(38,255,25,.14)}.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center}.brand img{width:148px;height:auto;display:block;filter:none;image-rendering:pixelated}.navlinks{display:flex;align-items:center;gap:22px;font-size:.79rem;color:#ccd2cc;letter-spacing:.08em}.nav-x{border:1px solid var(--red);padding:8px 13px;box-shadow:var(--shadow-r)}
-.hero{min-height:100svh;padding:126px 0 58px;display:grid;align-items:end;position:relative;isolation:isolate}.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(5,7,5,.99),rgba(5,7,5,.82) 56%,rgba(5,7,5,.66)),linear-gradient(rgba(38,255,25,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(38,255,25,.024) 1px,transparent 1px);background-size:auto,38px 38px,38px 38px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:end}.hero-copy{padding-bottom:14px}.hero-kana{font:800 clamp(.8rem,1.2vw,1rem) ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.36em;color:#cfd6cf;margin-top:0}.tagline{font-size:clamp(1.3rem,2.25vw,2rem);font-weight:900;margin:30px 0 8px}.hero-note{max-width:650px;color:#c7cec7;margin:0 0 28px}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border:1px solid var(--line);font-weight:900;letter-spacing:.04em;background:rgba(5,7,5,.72);transition:.2s}.btn:hover{transform:translateY(-2px)}.btn.primary{border-color:var(--green);background:var(--green);color:#041004;box-shadow:var(--shadow-g)}.btn.red{border-color:var(--red);box-shadow:var(--shadow-r)}
-.next-card{width:min(100%,460px);justify-self:end;border:1px solid rgba(38,255,25,.38);background:linear-gradient(145deg,rgba(12,16,12,.96),rgba(5,7,5,.94));box-shadow:0 30px 100px rgba(0,0,0,.55),var(--shadow-g);overflow:hidden}.next-tag{background:var(--green);color:#061006;padding:10px 16px;font:1000 .76rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em}.next-body{padding:22px}.next-date{font:1000 clamp(2.25rem,4vw,3.3rem)/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.02em;display:inline-block;text-shadow:2px 0 rgba(255,36,36,.42),-2px 0 rgba(38,255,25,.28);animation:glitchMove 3s steps(2) infinite}.next-place{font-size:1.22rem;font-weight:1000;margin:10px 0 16px;display:inline-block;text-shadow:1.5px 0 rgba(255,36,36,.34),-1.5px 0 rgba(38,255,25,.24);animation:glitchMove 4.2s steps(2) infinite reverse}.meta{display:grid;grid-template-columns:100px 1fr;gap:7px 10px;font-size:.9rem;padding:15px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}.meta dt{color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.meta dd{margin:0}.about-copy{max-width:850px;font-size:clamp(1.02rem,1.6vw,1.19rem);color:#cfd6cf}.about-copy p{margin:0 0 25px}.about-copy strong{color:#fff;font-size:1.07em}
-.event-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.event-card{border:1px solid rgba(255,255,255,.11);background:linear-gradient(145deg,rgba(13,16,13,.96),rgba(6,8,6,.96));overflow:hidden;position:relative}.event-card.featured{border-color:rgba(38,255,25,.42);box-shadow:var(--shadow-g)}.event-card::after{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:linear-gradient(var(--green),var(--red))}.event-card::before{content:"";position:absolute;right:16px;top:16px;width:34px;height:34px;border-top:1px solid rgba(255,36,36,.55);border-right:1px solid rgba(255,36,36,.55);opacity:.9}.event-head{display:grid;grid-template-columns:180px 1fr;min-height:206px}.event-visual{background:#060806;padding:14px}.flyer-mini{height:100%;position:relative;background:linear-gradient(145deg,rgba(0,0,0,.95),rgba(9,12,9,.98));padding:14px;display:flex;flex-direction:column;justify-content:space-between}.flyer-mini::before{content:"";position:absolute;inset:8px;border:1px solid rgba(38,255,25,.22)}.flyer-mini::after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,36,36,.16)}.flyer-mini .mini-brand{width:92px;position:relative;z-index:1}.flyer-mini .mini-brand img{width:100%;display:block;image-rendering:pixelated}.flyer-mini .mini-stack{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}.flyer-mini .mini-code{font:900 .62rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:var(--red)}.flyer-mini .mini-signal{height:72px;border:1px solid rgba(38,255,25,.24);position:relative;background:linear-gradient(180deg,rgba(38,255,25,.05),rgba(255,36,36,.02));overflow:hidden}.flyer-mini .mini-signal::before{content:"";position:absolute;left:10px;right:10px;top:16px;height:1px;background:linear-gradient(90deg,transparent,rgba(38,255,25,.85),transparent);box-shadow:0 16px 0 rgba(255,36,36,.7),0 32px 0 rgba(38,255,25,.55)}.flyer-mini .mini-signal::after{content:"";position:absolute;width:54px;height:54px;border:1px solid rgba(255,255,255,.16);right:10px;bottom:-16px;transform:rotate(45deg);background:radial-gradient(circle at 30% 30%,rgba(255,36,36,.16),transparent 65%)}.flyer-mini .mini-copy{font:800 .7rem/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;color:#d7ddd7}.flyer-mini .mini-label{position:relative;z-index:1;align-self:flex-start;border:1px solid rgba(255,36,36,.7);padding:4px 6px;font:900 .58rem ui-monospace,SFMono-Regular,Menlo,monospace;box-shadow:var(--shadow-r)}.event-main{padding:20px}.event-date{font:1000 2rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.02em;display:inline-block;text-shadow:2px 0 rgba(255,36,36,.42),-2px 0 rgba(38,255,25,.28);animation:glitchMove 3.2s steps(2) infinite}.event-venue{font-weight:1000;font-size:1.12rem;margin:8px 0 2px;display:inline-block;text-shadow:1.5px 0 rgba(255,36,36,.34),-1.5px 0 rgba(38,255,25,.24);animation:glitchMove 4.4s steps(2) infinite reverse}.event-time{color:#b7c0b7;font-size:.9rem}.event-info{padding:0 20px 20px}.info-row{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.065);font-size:.88rem}.info-row b{font:700 .73rem ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);letter-spacing:.08em}.lineup-block{padding-top:14px;border-top:1px solid rgba(255,255,255,.065);margin-top:12px}.lineup-title{color:var(--green);font-weight:900;font-size:.84rem;letter-spacing:.07em}.lineup{margin:10px 0 0;color:#c9d0c9;font-size:.88rem;line-height:1.8}.status{display:inline-flex;align-items:center;gap:7px;font:800 .68rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;color:#071007;background:var(--green);padding:4px 7px;margin-top:10px}.status.pending{color:#fff;background:var(--red)}
-.origin{overflow:hidden}.origin-shell{min-height:560px;border:1px solid rgba(38,255,25,.30);display:grid;place-items:center;position:relative;text-align:center;background:radial-gradient(circle at center,rgba(38,255,25,.08),transparent 28rem),linear-gradient(145deg,rgba(10,13,10,.97),rgba(3,5,3,.98))}.origin-shell::before,.origin-shell::after{content:"";position:absolute;inset:28px;border:1px solid rgba(255,36,36,.19)}.origin-shell::after{inset:58px;border-color:rgba(38,255,25,.13)}.origin-content{position:relative;z-index:2;max-width:720px;padding:56px 34px}.origin-code{font:900 .74rem ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--red);letter-spacing:.19em}.origin-title{font-size:clamp(3.8rem,11vw,8rem);font-weight:1000;line-height:.86;letter-spacing:.03em;word-spacing:.18em;margin:28px 0;text-shadow:4px 0 rgba(255,36,36,.34),-4px 0 rgba(38,255,25,.28)}.origin-copy{font-size:clamp(1rem,1.5vw,1.15rem);color:#c7cec7}.origin-copy strong{color:#fff}.wanted-grid{display:grid;grid-template-columns:1fr .85fr;gap:24px;align-items:stretch}.wanted-copy,.wanted-panel{border:1px solid rgba(255,255,255,.10);background:var(--panel);padding:30px}.wanted-copy p{color:#c8cfc8;margin:0 0 16px}.rule{display:flex;gap:13px;padding:13px 0;border-top:1px solid rgba(255,255,255,.07)}.rule-no{color:var(--green);font:900 .8rem ui-monospace,SFMono-Regular,Menlo,monospace}.wanted-panel{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(145deg,rgba(38,255,25,.055),rgba(255,36,36,.035))}.wanted-panel strong{font-size:1.5rem}.wanted-panel .btn{margin-top:24px;width:100%}.goods-box{border:1px dashed rgba(255,255,255,.18);padding:40px;display:flex;justify-content:space-between;gap:30px;align-items:center;background:rgba(255,255,255,.015)}.goods-big{font-size:clamp(2.2rem,5vw,5rem);font-weight:1000;letter-spacing:-.05em}.goods-note{color:#a9b2a9;max-width:420px}.social-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.social-card{border:1px solid rgba(255,255,255,.10);padding:24px;background:var(--panel);transition:.2s}.social-card:hover{border-color:var(--green);transform:translateY(-2px)}.social-card b{display:block;font-size:1.18rem}.social-card span{color:#9fa89f;font-size:.86rem}.reveal{opacity:0;transform:translateY(18px);transition:.72s ease}.reveal.on{opacity:1;transform:none}footer{border-top:1px solid rgba(38,255,25,.14);padding:38px 0 52px}.footer-grid{display:flex;justify-content:space-between;align-items:flex-end;gap:30px}.footer-logo{width:220px;max-width:55vw;display:block;filter:none;image-rendering:pixelated}.footer-code{color:#879187;font-size:.72rem}
-.kv-mega{margin:20px 0 10px;font-size:clamp(4.8rem,10.5vw,9.4rem);font-weight:1000;line-height:.82;letter-spacing:-.065em;color:#f5f7f5;text-shadow:5px 0 rgba(255,36,36,.42),-5px 0 rgba(38,255,25,.32);animation:glitchMove 5.2s steps(2) infinite}.kv-lockup{display:flex;align-items:center;gap:18px;margin-bottom:28px}.kv-lockup img{width:230px;height:auto;image-rendering:pixelated}.kv-lockup span{font:800 .78rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;color:#b8c2b8}.real-flyer{padding:16px;background:linear-gradient(145deg,rgba(38,255,25,.025),rgba(255,36,36,.018));border-bottom:1px solid rgba(255,255,255,.08)}.real-flyer img{width:100%;height:auto;display:block;border:1px solid rgba(38,255,25,.16)}.poster-head{grid-template-columns:220px 1fr;min-height:245px}.real-mini{padding:12px;background:linear-gradient(145deg,rgba(38,255,25,.035),rgba(0,0,0,.96))}.real-mini img{width:100%;height:100%;object-fit:cover;display:block;border:1px solid rgba(255,255,255,.08)}.event-date,.event-venue,.next-date,.next-place{text-shadow:2px 0 rgba(255,36,36,.38),-2px 0 rgba(38,255,25,.25)}.section:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(38,255,25,.28),rgba(255,36,36,.2),transparent)}
-@media(max-width:930px){.hero-grid,.wanted-grid{grid-template-columns:1fr}.next-card{justify-self:start}.event-grid{grid-template-columns:1fr}.navlinks a:not(.nav-x){display:none}.section{padding:84px 0}.desktop-break{display:none}}
-@media(max-width:600px){.kv-mega{font-size:clamp(3.8rem,20vw,6rem)}.kv-lockup img{width:180px}.poster-head{grid-template-columns:1fr}.real-mini img{height:auto;object-fit:contain}.wrap{width:min(calc(100% - 26px),var(--max))}.hero{padding-top:105px}.hero-kana{letter-spacing:.22em}.event-head{grid-template-columns:1fr}.event-visual{padding:12px}.flyer-mini{min-height:210px}.event-main{padding:16px}.event-info{padding:0 16px 16px}.event-date{font-size:1.65rem}.info-row{grid-template-columns:76px 1fr}.origin-shell{min-height:500px}.origin-shell::before{inset:16px}.origin-shell::after{inset:32px}.origin-content{padding:42px 24px}.goods-box,.footer-grid{display:block}.goods-note,.footer-code{margin-top:18px}.social-grid{grid-template-columns:1fr}}
-</style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#050705" />
+    <meta name="description" content="電脳義学 — 音楽を通じて学び、繋がり、成長する。「学び」をテーマにしたDJイベント／カルチャープロジェクト。" />
+    <meta property="og:title" content="電脳義学 | DENNOU GIGAKU" />
+    <meta property="og:description" content="音楽を通じて学び、繋がり、成長する。" />
+    <meta property="og:type" content="website" />
+    <title>電脳義学 | DENNOU GIGAKU</title>
+    <style>
+        :root {
+            --bg: #050705;
+            --panel: #090c09;
+            --panel2: #0d100d;
+            --ink: #f2f4f2;
+            --muted: #9ba49b;
+            --green: #26ff19;
+            --red: #ff2424;
+            --line: #243024;
+            --max: 1180px;
+            --shadow-g: 0 0 28px rgba(38, 255, 25, .20);
+            --shadow-r: 0 0 26px rgba(255, 36, 36, .16);
+        }
+
+        @keyframes gridDrift {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1)
+            }
+
+            50% {
+                transform: translate3d(-2%, 1%, 0) scale(1.02)
+            }
+
+            100% {
+                transform: translate3d(2%, -1%, 0) scale(1.04)
+            }
+        }
+
+        @keyframes scanFlicker {
+
+            0%,
+            100% {
+                opacity: .07
+            }
+
+            49% {
+                opacity: .05
+            }
+
+            50% {
+                opacity: .09
+            }
+        }
+
+        @keyframes glitchMove {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            20% {
+                transform: translate(.5px, -.5px)
+            }
+
+            40% {
+                transform: translate(-.7px, .4px)
+            }
+
+            60% {
+                transform: translate(.8px, .3px)
+            }
+
+            80% {
+                transform: translate(-.4px, -.4px)
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: var(--bg)
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: radial-gradient(circle at 14% -8%, rgba(38, 255, 25, .09), transparent 32rem), radial-gradient(circle at 92% 20%, rgba(255, 36, 36, .07), transparent 32rem), var(--bg);
+            font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: -10%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: .75;
+            background: radial-gradient(circle at 20% 20%, rgba(38, 255, 25, .08), transparent 18rem), radial-gradient(circle at 80% 15%, rgba(255, 36, 36, .06), transparent 20rem), radial-gradient(circle at 60% 78%, rgba(38, 255, 25, .05), transparent 16rem), repeating-linear-gradient(90deg, rgba(38, 255, 25, .035) 0 1px, transparent 1px 72px), repeating-linear-gradient(0deg, rgba(38, 255, 25, .025) 0 1px, transparent 1px 72px);
+            transform: translate3d(0, 0, 0);
+            animation: gridDrift 24s linear infinite alternate
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99;
+            opacity: .07;
+            background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, #fff 4px);
+            mix-blend-mode: overlay;
+            animation: scanFlicker 8s steps(2) infinite
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            width: min(calc(100% - 40px), var(--max));
+            margin: auto
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+        }
+
+        .eyebrow {
+            font: 800 .76rem ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            color: var(--green);
+            letter-spacing: .20em;
+            text-transform: uppercase
+        }
+
+        .section {
+            padding: 110px 0;
+            position: relative
+        }
+
+        .section+.section {
+            border-top: 1px solid rgba(38, 255, 20, .09)
+        }
+
+        .section-title {
+            margin: 10px 0 26px;
+            font-weight: 1000;
+            font-size: clamp(2.2rem, 5vw, 4.9rem);
+            line-height: 1;
+            letter-spacing: -.045em
+        }
+
+        .section-lead {
+            max-width: 760px;
+            color: #bbc2bb;
+            margin: 0 0 42px
+        }
+
+        header {
+            height: 68px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 80;
+            background: rgba(5, 7, 5, .82);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(38, 255, 25, .14)
+        }
+
+        .nav {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center
+        }
+
+        .brand img {
+            width: 148px;
+            height: auto;
+            display: block;
+            filter: none;
+            image-rendering: pixelated
+        }
+
+        .navlinks {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: .79rem;
+            color: #ccd2cc;
+            letter-spacing: .08em
+        }
+
+        .nav-x {
+            border: 1px solid var(--red);
+            padding: 8px 13px;
+            box-shadow: var(--shadow-r)
+        }
+
+        .hero {
+            min-height: 100svh;
+            padding: 126px 0 58px;
+            display: grid;
+            align-items: end;
+            position: relative;
+            isolation: isolate
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: linear-gradient(90deg, rgba(5, 7, 5, .99), rgba(5, 7, 5, .82) 56%, rgba(5, 7, 5, .66)), linear-gradient(rgba(38, 255, 25, .024) 1px, transparent 1px), linear-gradient(90deg, rgba(38, 255, 25, .024) 1px, transparent 1px);
+            background-size: auto, 38px 38px, 38px 38px
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 54px;
+            align-items: end
+        }
+
+        .hero-copy {
+            padding-bottom: 14px
+        }
+
+        .hero-kana {
+            font: 800 clamp(.8rem, 1.2vw, 1rem) ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            letter-spacing: .36em;
+            color: #cfd6cf;
+            margin-top: 0
+        }
+
+        .tagline {
+            font-size: clamp(1.3rem, 2.25vw, 2rem);
+            font-weight: 900;
+            margin: 30px 0 8px
+        }
+
+        .hero-note {
+            max-width: 650px;
+            color: #c7cec7;
+            margin: 0 0 28px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 18px;
+            border: 1px solid var(--line);
+            font-weight: 900;
+            letter-spacing: .04em;
+            background: rgba(5, 7, 5, .72);
+            transition: .2s
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn.primary {
+            border-color: var(--green);
+            background: var(--green);
+            color: #041004;
+            box-shadow: var(--shadow-g)
+        }
+
+        .btn.red {
+            border-color: var(--red);
+            box-shadow: var(--shadow-r)
+        }
+
+        .next-card {
+            width: min(100%, 460px);
+            justify-self: end;
+            border: 1px solid rgba(38, 255, 25, .38);
+            background: linear-gradient(145deg, rgba(12, 16, 12, .96), rgba(5, 7, 5, .94));
+            box-shadow: 0 30px 100px rgba(0, 0, 0, .55), var(--shadow-g);
+            overflow: hidden
+        }
+
+        .next-tag {
+            background: var(--green);
+            color: #061006;
+            padding: 10px 16px;
+            font: 1000 .76rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: .2em
+        }
+
+        .next-body {
+            padding: 22px
+        }
+
+        .next-date {
+            font: 1000 clamp(2.25rem, 4vw, 3.3rem)/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: -.02em;
+            display: inline-block;
+            text-shadow: 2px 0 rgba(255, 36, 36, .42), -2px 0 rgba(38, 255, 25, .28);
+            animation: glitchMove 3s steps(2) infinite
+        }
+
+        .next-place {
+            font-size: 1.22rem;
+            font-weight: 1000;
+            margin: 10px 0 16px;
+            display: inline-block;
+            text-shadow: 1.5px 0 rgba(255, 36, 36, .34), -1.5px 0 rgba(38, 255, 25, .24);
+            animation: glitchMove 4.2s steps(2) infinite reverse
+        }
+
+        .meta {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 7px 10px;
+            font-size: .9rem;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .meta dt {
+            color: var(--muted);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace
+        }
+
+        .meta dd {
+            margin: 0
+        }
+
+        .about-copy {
+            max-width: 850px;
+            font-size: clamp(1.02rem, 1.6vw, 1.19rem);
+            color: #cfd6cf
+        }
+
+        .about-copy p {
+            margin: 0 0 25px
+        }
+
+        .about-copy strong {
+            color: #fff;
+            font-size: 1.07em
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px
+        }
+
+        .event-card {
+            border: 1px solid rgba(255, 255, 255, .11);
+            background: linear-gradient(145deg, rgba(13, 16, 13, .96), rgba(6, 8, 6, .96));
+            overflow: hidden;
+            position: relative
+        }
+
+        .event-card.featured {
+            border-color: rgba(38, 255, 25, .42);
+            box-shadow: var(--shadow-g)
+        }
+
+        .event-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(var(--green), var(--red))
+        }
+
+        .event-card::before {
+            content: "";
+            position: absolute;
+            right: 16px;
+            top: 16px;
+            width: 34px;
+            height: 34px;
+            border-top: 1px solid rgba(255, 36, 36, .55);
+            border-right: 1px solid rgba(255, 36, 36, .55);
+            opacity: .9
+        }
+
+        .event-head {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            min-height: 206px
+        }
+
+        .event-visual {
+            background: #060806;
+            padding: 14px
+        }
+
+        .flyer-mini {
+            height: 100%;
+            position: relative;
+            background: linear-gradient(145deg, rgba(0, 0, 0, .95), rgba(9, 12, 9, .98));
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .flyer-mini::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(38, 255, 25, .22)
+        }
+
+        .flyer-mini::after {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(255, 36, 36, .16)
+        }
+
+        .flyer-mini .mini-brand {
+            width: 92px;
+            position: relative;
+            z-index: 1
+        }
+
+        .flyer-mini .mini-brand img {
+            width: 100%;
+            display: block;
+            image-rendering: pixelated
+        }
+
+        .flyer-mini .mini-stack {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .flyer-mini .mini-code {
+            font: 900 .62rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: .18em;
+            color: var(--red)
+        }
+
+        .flyer-mini .mini-signal {
+            height: 72px;
+            border: 1px solid rgba(38, 255, 25, .24);
+            position: relative;
+            background: linear-gradient(180deg, rgba(38, 255, 25, .05), rgba(255, 36, 36, .02));
+            overflow: hidden
+        }
+
+        .flyer-mini .mini-signal::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 16px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 255, 25, .85), transparent);
+            box-shadow: 0 16px 0 rgba(255, 36, 36, .7), 0 32px 0 rgba(38, 255, 25, .55)
+        }
+
+        .flyer-mini .mini-signal::after {
+            content: "";
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            border: 1px solid rgba(255, 255, 255, .16);
+            right: 10px;
+            bottom: -16px;
+            transform: rotate(45deg);
+            background: radial-gradient(circle at 30% 30%, rgba(255, 36, 36, .16), transparent 65%)
+        }
+
+        .flyer-mini .mini-copy {
+            font: 800 .7rem/1.35 ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: .12em;
+            color: #d7ddd7
+        }
+
+        .flyer-mini .mini-label {
+            position: relative;
+            z-index: 1;
+            align-self: flex-start;
+            border: 1px solid rgba(255, 36, 36, .7);
+            padding: 4px 6px;
+            font: 900 .58rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            box-shadow: var(--shadow-r)
+        }
+
+        .event-main {
+            padding: 20px
+        }
+
+        .event-date {
+            font: 1000 2rem/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: -.02em;
+            display: inline-block;
+            text-shadow: 2px 0 rgba(255, 36, 36, .42), -2px 0 rgba(38, 255, 25, .28);
+            animation: glitchMove 3.2s steps(2) infinite
+        }
+
+        .event-venue {
+            font-weight: 1000;
+            font-size: 1.12rem;
+            margin: 8px 0 2px;
+            display: inline-block;
+            text-shadow: 1.5px 0 rgba(255, 36, 36, .34), -1.5px 0 rgba(38, 255, 25, .24);
+            animation: glitchMove 4.4s steps(2) infinite reverse
+        }
+
+        .event-time {
+            color: #b7c0b7;
+            font-size: .9rem
+        }
+
+        .event-info {
+            padding: 0 20px 20px
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 88px 1fr;
+            gap: 10px;
+            padding: 9px 0;
+            border-top: 1px solid rgba(255, 255, 255, .065);
+            font-size: .88rem
+        }
+
+        .info-row b {
+            font: 700 .73rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            color: var(--muted);
+            letter-spacing: .08em
+        }
+
+        .lineup-block {
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, .065);
+            margin-top: 12px
+        }
+
+        .lineup-title {
+            color: var(--green);
+            font-weight: 900;
+            font-size: .84rem;
+            letter-spacing: .07em
+        }
+
+        .lineup {
+            margin: 10px 0 0;
+            color: #c9d0c9;
+            font-size: .88rem;
+            line-height: 1.8
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font: 800 .68rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: .1em;
+            color: #071007;
+            background: var(--green);
+            padding: 4px 7px;
+            margin-top: 10px
+        }
+
+        .status.pending {
+            color: #fff;
+            background: var(--red)
+        }
+
+        .origin {
+            overflow: hidden
+        }
+
+        .origin-shell {
+            min-height: 560px;
+            border: 1px solid rgba(38, 255, 25, .30);
+            display: grid;
+            place-items: center;
+            position: relative;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(38, 255, 25, .08), transparent 28rem), linear-gradient(145deg, rgba(10, 13, 10, .97), rgba(3, 5, 3, .98))
+        }
+
+        .origin-shell::before,
+        .origin-shell::after {
+            content: "";
+            position: absolute;
+            inset: 28px;
+            border: 1px solid rgba(255, 36, 36, .19)
+        }
+
+        .origin-shell::after {
+            inset: 58px;
+            border-color: rgba(38, 255, 25, .13)
+        }
+
+        .origin-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            padding: 56px 34px
+        }
+
+        .origin-code {
+            font: 900 .74rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            color: var(--red);
+            letter-spacing: .19em
+        }
+
+        .origin-title {
+            font-size: clamp(3.8rem, 11vw, 8rem);
+            font-weight: 1000;
+            line-height: .86;
+            letter-spacing: .03em;
+            word-spacing: .18em;
+            margin: 28px 0;
+            text-shadow: 4px 0 rgba(255, 36, 36, .34), -4px 0 rgba(38, 255, 25, .28)
+        }
+
+        .origin-copy {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: #c7cec7
+        }
+
+        .origin-copy strong {
+            color: #fff
+        }
+
+        .wanted-grid {
+            display: grid;
+            grid-template-columns: 1fr .85fr;
+            gap: 24px;
+            align-items: stretch
+        }
+
+        .wanted-copy,
+        .wanted-panel {
+            border: 1px solid rgba(255, 255, 255, .10);
+            background: var(--panel);
+            padding: 30px
+        }
+
+        .wanted-copy p {
+            color: #c8cfc8;
+            margin: 0 0 16px
+        }
+
+        .rule {
+            display: flex;
+            gap: 13px;
+            padding: 13px 0;
+            border-top: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .rule-no {
+            color: var(--green);
+            font: 900 .8rem ui-monospace, SFMono-Regular, Menlo, monospace
+        }
+
+        .wanted-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(145deg, rgba(38, 255, 25, .055), rgba(255, 36, 36, .035))
+        }
+
+        .wanted-panel strong {
+            font-size: 1.5rem
+        }
+
+        .wanted-panel .btn {
+            margin-top: 24px;
+            width: 100%
+        }
+
+        .goods-box {
+            border: 1px dashed rgba(255, 255, 255, .18);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+            background: rgba(255, 255, 255, .015)
+        }
+
+        .goods-big {
+            font-size: clamp(2.2rem, 5vw, 5rem);
+            font-weight: 1000;
+            letter-spacing: -.05em
+        }
+
+        .goods-note {
+            color: #a9b2a9;
+            max-width: 420px
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px
+        }
+
+        .social-card {
+            border: 1px solid rgba(255, 255, 255, .10);
+            padding: 24px;
+            background: var(--panel);
+            transition: .2s
+        }
+
+        .social-card:hover {
+            border-color: var(--green);
+            transform: translateY(-2px)
+        }
+
+        .social-card b {
+            display: block;
+            font-size: 1.18rem
+        }
+
+        .social-card span {
+            color: #9fa89f;
+            font-size: .86rem
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: .72s ease
+        }
+
+        .reveal.on {
+            opacity: 1;
+            transform: none
+        }
+
+        footer {
+            border-top: 1px solid rgba(38, 255, 25, .14);
+            padding: 38px 0 52px
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 30px
+        }
+
+        .footer-logo {
+            width: 220px;
+            max-width: 55vw;
+            display: block;
+            filter: none;
+            image-rendering: pixelated
+        }
+
+        .footer-code {
+            color: #879187;
+            font-size: .72rem
+        }
+
+        .kv-mega {
+            margin: 20px 0 10px;
+            font-size: clamp(4.8rem, 10.5vw, 9.4rem);
+            font-weight: 1000;
+            line-height: .82;
+            letter-spacing: -.065em;
+            color: #f5f7f5;
+            text-shadow: 5px 0 rgba(255, 36, 36, .42), -5px 0 rgba(38, 255, 25, .32);
+            animation: glitchMove 5.2s steps(2) infinite
+        }
+
+        .kv-lockup {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 28px
+        }
+
+        .kv-lockup img {
+            width: 230px;
+            height: auto;
+            image-rendering: pixelated
+        }
+
+        .kv-lockup span {
+            font: 800 .78rem ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: .18em;
+            color: #b8c2b8
+        }
+
+        .real-flyer {
+            padding: 16px;
+            background: linear-gradient(145deg, rgba(38, 255, 25, .025), rgba(255, 36, 36, .018));
+            border-bottom: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .real-flyer img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid rgba(38, 255, 25, .16)
+        }
+
+        .poster-head {
+            grid-template-columns: 220px 1fr;
+            min-height: 245px
+        }
+
+        .real-mini {
+            padding: 12px;
+            background: linear-gradient(145deg, rgba(38, 255, 25, .035), rgba(0, 0, 0, .96))
+        }
+
+        .real-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        .event-date,
+        .event-venue,
+        .next-date,
+        .next-place {
+            text-shadow: 2px 0 rgba(255, 36, 36, .38), -2px 0 rgba(38, 255, 25, .25)
+        }
+
+        .section:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(38, 255, 25, .28), rgba(255, 36, 36, .2), transparent)
+        }
+
+        @media(max-width:930px) {
+
+            .hero-grid,
+            .wanted-grid {
+                grid-template-columns: 1fr
+            }
+
+            .next-card {
+                justify-self: start
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr
+            }
+
+            .navlinks a:not(.nav-x) {
+                display: none
+            }
+
+            .section {
+                padding: 84px 0
+            }
+
+            .desktop-break {
+                display: none
+            }
+        }
+
+        @media(max-width:600px) {
+            .kv-mega {
+                font-size: clamp(3.8rem, 20vw, 6rem)
+            }
+
+            .kv-lockup img {
+                width: 180px
+            }
+
+            .poster-head {
+                grid-template-columns: 1fr
+            }
+
+            .real-mini img {
+                height: auto;
+                object-fit: contain
+            }
+
+            .wrap {
+                width: min(calc(100% - 26px), var(--max))
+            }
+
+            .hero {
+                padding-top: 105px
+            }
+
+            .hero-kana {
+                letter-spacing: .22em
+            }
+
+            .event-head {
+                grid-template-columns: 1fr
+            }
+
+            .event-visual {
+                padding: 12px
+            }
+
+            .flyer-mini {
+                min-height: 210px
+            }
+
+            .event-main {
+                padding: 16px
+            }
+
+            .event-info {
+                padding: 0 16px 16px
+            }
+
+            .event-date {
+                font-size: 1.65rem
+            }
+
+            .info-row {
+                grid-template-columns: 76px 1fr
+            }
+
+            .origin-shell {
+                min-height: 500px
+            }
+
+            .origin-shell::before {
+                inset: 16px
+            }
+
+            .origin-shell::after {
+                inset: 32px
+            }
+
+            .origin-content {
+                padding: 42px 24px
+            }
+
+            .goods-box,
+            .footer-grid {
+                display: block
+            }
+
+            .goods-note,
+            .footer-code {
+                margin-top: 18px
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header><div class="wrap nav"><a class="brand" href="#top"><img src="/assets/logo.svg" alt="電脳義学"></a><nav class="navlinks"><a href="#about">ABOUT</a><a href="#schedule">SCHEDULE</a><a href="#wanted">DJ WANTED</a><a href="#origin">ORIGIN</a><a class="nav-x" href="https://x.com/dennougigaku" target="_blank" rel="noopener">OFFICIAL X</a></nav></div></header>
-<main id="top">
-<section class="hero"><div class="wrap hero-grid"><div class="hero-copy reveal"><div class="eyebrow">DJ EVENT / CULTURE PROJECT</div><h1 class="kv-mega">電脳義学</h1><div class="kv-lockup"><img src="/assets/logo.svg" alt="電脳義学ロゴ"><span>DENNOU GIGAKU / 開講中</span></div><p class="tagline">音楽を通じて学び、繋がり、成長する。</p><p class="hero-note">「学び」をテーマにしたDJイベント／カルチャープロジェクト。</p><div class="actions"><a class="btn primary" href="#schedule">次回開講を見る</a><a class="btn red" href="#wanted">出演について</a></div></div><article class="next-card reveal"><div class="next-tag">NEXT CLASS / 2026.08.11</div><div class="real-flyer"><img src="/assets/20260811.jpeg" alt="電脳義学 2026年8月11日 フライヤー"></div><div class="next-body"><div class="next-date">08.11</div><div class="next-place">高円寺 yakusyu</div><dl class="meta"><dt>TIME</dt><dd>15:00 - 20:00</dd><dt>ENTRANCE</dt><dd>¥1,000 + 1D</dd><dt>ADDRESS</dt><dd>東京都杉並区高円寺北3丁目1 山本ビル2F</dd><dt>LINEUP</dt><dd>幽礼 / taki / Fraiz / ニラサキ / SO-1殿下 / ひずみん / エガシティ / だい / GONE</dd></dl></div></article></div></section>
-<section id="about" class="section"><div class="wrap"><div class="eyebrow reveal">01 / ABOUT DENNOU GIGAKU</div><h2 class="section-title reveal">電脳義学とは</h2><div class="about-copy reveal"><p><strong>音楽を通じて学び、繋がり、成長する。</strong></p><p>電脳義学は、<br class="desktop-break">「学び」をテーマにしたDJイベント／カルチャープロジェクトです。</p><p>出演者は現場で実践し、<br class="desktop-break">来場者はまだ知らない音楽や表現、文化に触れる。</p><p>誰かの選曲が、誰かの新しい発見になる。<br class="desktop-break">誰かとの出会いが、次の一歩へと接続されていく。</p><p>ここでいう「義学」の「学」は、<br class="desktop-break">一方的に教え、教わるためのものではありません。</p><p>互いに刺激を受け、互いに学び、<br class="desktop-break">それぞれが何かを持ち帰る。</p><p>音楽をはじめとする、<br class="desktop-break">さまざまなカルチャーと人が交差する場所。</p><p><strong>それが、電脳義学です。</strong></p></div></div></section>
-<section id="schedule" class="section"><div class="wrap"><div class="eyebrow reveal">02 / UPCOMING CLASSES</div><h2 class="section-title reveal">開講予定</h2><p class="section-lead reveal">開催情報は確定した内容から順次更新します。出演者・料金など変更の可能性がある情報は、各回の最新告知をご確認ください。</p><div class="event-grid"><article class="event-card featured reveal"><div class="event-head poster-head"><div class="event-visual real-mini"><img src="/assets/20260811.jpeg" alt="8月11日フライヤー"></div><div class="event-main"><div class="event-date">08.11</div><div class="event-venue">高円寺 yakusyu</div><div class="event-time">15:00 - 20:00</div><span class="status">NEXT CLASS</span></div></div><div class="event-info"><div class="info-row"><b>ENTRANCE</b><span>¥1,000 + 1D</span></div><div class="info-row"><b>ADDRESS</b><span>東京都杉並区高円寺北3丁目1 山本ビル2F</span></div><div class="lineup-block"><div class="lineup-title">LINEUP</div><p class="lineup">幽礼 / taki / Fraiz / ニラサキ / SO-1殿下 / ひずみん / エガシティ / だい / GONE</p></div></div></article><article class="event-card reveal"><div class="event-head poster-head"><div class="event-visual real-mini"><img src="/assets/20260919.jpeg" alt="9月19日フライヤー"></div><div class="event-main"><div class="event-date">09.19</div><div class="event-venue">ドライブイン電電</div><div class="event-time">17:30 - 23:00</div></div></div><div class="event-info"><div class="info-row"><b>ENTRANCE</b><span>¥1,000 + 1D</span></div><div class="info-row"><b>ADDRESS</b><span>東京都台東区浅草1丁目1-12 浅草地下街B1 16号室</span></div><div class="lineup-block"><div class="lineup-title">LINEUP</div><p class="lineup">キク / RYO / 双葉美月 / RYUSE / taki / ひずみん / mkcream / だい / CIRER CORGI / Fraiz / GONE</p></div></div></article><article class="event-card reveal"><div class="event-head"><div class="event-visual"><div class="flyer-mini"><div class="mini-brand"><img src="/assets/logo.svg" alt=""></div><div class="mini-stack"><div class="mini-code">CLASS SIGNAL / DENNOU GIGAKU</div><div class="mini-signal"></div><div class="mini-copy">DJ EVENT<br>CULTURE PROJECT</div></div><div class="mini-label">LINEUP / 予定</div></div></div><div class="event-main"><div class="event-date">10.10</div><div class="event-venue">RiG @ R4F</div><div class="event-time">13:00 - 18:30</div><span class="status pending">LINEUP / 予定</span></div></div><div class="event-info"><div class="info-row"><b>ENTRANCE</b><span>¥2,000（2D付）</span></div><div class="info-row"><b>ADDRESS</b><span>東京都港区六本木3-15-22 陽光セントラルビル4F</span></div><div class="lineup-block"><div class="lineup-title">LINEUP（予定）</div><p class="lineup">Fraiz / taki / だい / れ / ULTRA BREAD / エガシティ / ニラサキ / T@kuz0 / メカク / 電波少年 / GONE</p></div></div></article><article class="event-card reveal"><div class="event-head"><div class="event-visual"><div class="flyer-mini"><div class="mini-brand"><img src="/assets/logo.svg" alt=""></div><div class="mini-stack"><div class="mini-code">CLASS SIGNAL / DENNOU GIGAKU</div><div class="mini-signal"></div><div class="mini-copy">DJ EVENT<br>CULTURE PROJECT</div></div><div class="mini-label">DJ募集中</div></div></div><div class="event-main"><div class="event-date">11.14</div><div class="event-venue">ドライブイン電電</div><div class="event-time">17:30 - 23:00</div><span class="status pending">DJ募集中</span></div></div><div class="event-info"><div class="info-row"><b>ADDRESS</b><span>東京都台東区浅草1丁目1-12 浅草地下街B1 16号室</span></div><div class="lineup-block"><div class="lineup-title">CONFIRMED LINEUP</div><p class="lineup">Leekbeat / だい / CIRER CORGI / Fraiz / GONE</p></div></div></article></div></div></section>
-<section id="origin" class="section origin"><div class="wrap"><div class="eyebrow reveal">03 / ORIGIN</div><div class="origin-shell reveal"><div class="origin-content"><div class="origin-code">ORIGIN / ACCESS RESTRICTED</div><div class="origin-title">RETURN<br>TO ORIGIN</div><div class="origin-copy"><p><strong>すべては、あの場所から始まった。</strong></p><p>音が鳴り、人が集まり、<br>そこから電脳義学は生まれた。</p><p>そして、再び原点へ。</p><p>次の開講情報は、まだ開示されていない。</p><p class="mono" style="color:var(--green);letter-spacing:.16em">COMING SOON</p></div></div></div></div></section>
-<section id="wanted" class="section"><div class="wrap"><div class="eyebrow reveal">04 / DJ WANTED</div><h2 class="section-title reveal">出演者募集</h2><div class="wanted-grid"><div class="wanted-copy reveal"><p><strong style="color:#fff;font-size:1.2rem">電脳義学では、出演DJを随時募集しています。</strong></p><p>初心者の方も歓迎しています。現場で経験を積みたい方、新しい一歩を踏み出したい方、ぜひご参加ください。</p><div class="rule"><div class="rule-no">01</div><div>初心者歓迎</div></div><div class="rule"><div class="rule-no">02</div><div>基本操作を含め、一度でもDJ機材に触れた経験のある方が対象です。</div></div><div class="rule"><div class="rule-no">03</div><div>出演条件やイベントの詳細を聞きたい方は、公式XのDMまでお問い合わせください。</div></div></div><aside class="wanted-panel reveal"><div><div class="eyebrow">CONNECT / OFFICIAL X</div><strong>次の現場へ接続する。</strong><p style="color:#aab3aa">出演相談・詳細確認はDMから受け付けています。</p></div><a class="btn primary" href="https://x.com/dennougigaku" target="_blank" rel="noopener">公式XからDMする ↗</a></aside></div></div></section>
-<section class="section"><div class="wrap"><div class="eyebrow reveal">05 / GOODS</div><div class="goods-box reveal"><div><div class="goods-big">GOODS<br>COMING SOON</div><div class="mono" style="color:var(--green)">TARGET / 2026.11</div></div><p class="goods-note">電脳義学のプロジェクトグッズを準備中。現物公開・販売情報は、準備が整い次第お知らせします。</p></div></div></section>
-<section class="section"><div class="wrap"><div class="eyebrow reveal">06 / CONNECT</div><h2 class="section-title reveal">公式情報</h2><div class="social-grid"><a class="social-card reveal" href="https://x.com/dennougigaku" target="_blank" rel="noopener"><b>電脳義学 公式X ↗</b><span>@dennougigaku / 開催情報・最新告知</span></a><a class="social-card reveal" href="https://x.com/Gonecy_design" target="_blank" rel="noopener"><b>主催者 X ↗</b><span>@Gonecy_design / GONE</span></a></div></div></section>
-</main>
-<footer><div class="wrap footer-grid"><div><img class="footer-logo" src="/assets/logo.svg" alt="電脳義学"><div class="mono" style="color:#9aa39a;margin-top:8px">DJ EVENT / CULTURE PROJECT</div></div><div class="footer-code mono">SYSTEM STATUS: ONLINE<br>PROJECT ORIGIN: 2026<br>© DENNOU GIGAKU</div></div></footer>
-<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.10});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));</script>
+    <header>
+        <div class="wrap nav"><a class="brand" href="#top"><img src="/assets/logo.svg" alt="電脳義学"></a>
+            <nav class="navlinks"><a href="#about">ABOUT</a><a href="#schedule">SCHEDULE</a><a href="#wanted">DJ
+                    WANTED</a><a href="#origin">ORIGIN</a><a class="nav-x" href="https://x.com/dennougigaku"
+                    target="_blank" rel="noopener">OFFICIAL X</a></nav>
+        </div>
+    </header>
+    <main id="top">
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-copy reveal">
+                    <div class="eyebrow">DJ EVENT / CULTURE PROJECT</div>
+                    <h1 class="kv-mega">電脳義学</h1>
+                    <div class="kv-lockup"><img src="/assets/logo.svg" alt="電脳義学ロゴ"><span>DENNOU GIGAKU / 開講中</span>
+                    </div>
+                    <p class="tagline">音楽を通じて学び、繋がり、成長する。</p>
+                    <p class="hero-note">「学び」をテーマにしたDJイベント／カルチャープロジェクト。</p>
+                    <div class="actions"><a class="btn primary" href="#schedule">次回開講を見る</a><a class="btn red"
+                            href="#wanted">出演について</a></div>
+                </div>
+                <article class="next-card reveal">
+                    <div class="next-tag">NEXT CLASS / 2026.08.11</div>
+                    <div class="real-flyer"><img src="/assets/20260811.jpeg" alt="電脳義学 2026年8月11日 フライヤー"></div>
+                    <div class="next-body">
+                        <div class="next-date">08.11</div>
+                        <div class="next-place">高円寺 yakusyu</div>
+                        <dl class="meta">
+                            <dt>TIME</dt>
+                            <dd>15:00 - 20:00</dd>
+                            <dt>ENTRANCE</dt>
+                            <dd>¥1,000 + 1D</dd>
+                            <dt>ADDRESS</dt>
+                            <dd>東京都杉並区高円寺北3丁目1 山本ビル2F</dd>
+                            <dt>LINEUP</dt>
+                            <dd>幽礼 / taki / Fraiz / ニラサキ / SO-1殿下 / ひずみん / エガシティ / だい / GONE</dd>
+                        </dl>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="about" class="section">
+            <div class="wrap">
+                <div class="eyebrow reveal">01 / ABOUT DENNOU GIGAKU</div>
+                <h2 class="section-title reveal">電脳義学とは</h2>
+                <div class="about-copy reveal">
+                    <p><strong>音楽を通じて学び、繋がり、成長する。</strong></p>
+                    <p>電脳義学は、<br class="desktop-break">「学び」をテーマにしたDJイベント／カルチャープロジェクトです。</p>
+                    <p>出演者は現場で実践し、<br class="desktop-break">来場者はまだ知らない音楽や表現、文化に触れる。</p>
+                    <p>誰かの選曲が、誰かの新しい発見になる。<br class="desktop-break">誰かとの出会いが、次の一歩へと接続されていく。</p>
+                    <p>ここでいう「義学」の「学」は、<br class="desktop-break">一方的に教え、教わるためのものではありません。</p>
+                    <p>互いに刺激を受け、互いに学び、<br class="desktop-break">それぞれが何かを持ち帰る。</p>
+                    <p>音楽をはじめとする、<br class="desktop-break">さまざまなカルチャーと人が交差する場所。</p>
+                    <p><strong>それが、電脳義学です。</strong></p>
+                </div>
+            </div>
+        </section>
+        <section id="schedule" class="section">
+            <div class="wrap">
+                <div class="eyebrow reveal">02 / UPCOMING CLASSES</div>
+                <h2 class="section-title reveal">開講予定</h2>
+                <p class="section-lead reveal">開催情報は確定した内容から順次更新します。出演者・料金など変更の可能性がある情報は、各回の最新告知をご確認ください。</p>
+                <div class="event-grid">
+                    <article class="event-card featured reveal">
+                        <div class="event-head poster-head">
+                            <div class="event-visual real-mini"><img src="/assets/20260811.jpeg" alt="8月11日フライヤー"></div>
+                            <div class="event-main">
+                                <div class="event-date">08.11</div>
+                                <div class="event-venue">高円寺 yakusyu</div>
+                                <div class="event-time">15:00 - 20:00</div><span class="status">NEXT CLASS</span>
+                            </div>
+                        </div>
+                        <div class="event-info">
+                            <div class="info-row"><b>ENTRANCE</b><span>¥1,000 + 1D</span></div>
+                            <div class="info-row"><b>ADDRESS</b><span>東京都杉並区高円寺北3丁目1 山本ビル2F</span></div>
+                            <div class="lineup-block">
+                                <div class="lineup-title">LINEUP</div>
+                                <p class="lineup">幽礼 / taki / Fraiz / ニラサキ / SO-1殿下 / ひずみん / エガシティ / だい / GONE</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="event-card reveal">
+                        <div class="event-head poster-head">
+                            <div class="event-visual real-mini"><img src="/assets/20260919.jpeg" alt="9月19日フライヤー"></div>
+                            <div class="event-main">
+                                <div class="event-date">09.19</div>
+                                <div class="event-venue">ドライブイン電電</div>
+                                <div class="event-time">17:30 - 23:00</div>
+                            </div>
+                        </div>
+                        <div class="event-info">
+                            <div class="info-row"><b>ENTRANCE</b><span>¥1,000 + 1D</span></div>
+                            <div class="info-row"><b>ADDRESS</b><span>東京都台東区浅草1丁目1-12 浅草地下街B1 16号室</span></div>
+                            <div class="lineup-block">
+                                <div class="lineup-title">LINEUP</div>
+                                <p class="lineup">キク / RYO / 双葉美月 / RYUSE / taki / ひずみん / mkcream / だい / CIRER CORGI /
+                                    Fraiz / GONE</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="event-card reveal">
+                        <div class="event-head">
+                            <div class="event-visual">
+                                <div class="flyer-mini">
+                                    <div class="mini-brand"><img src="/assets/logo.svg" alt=""></div>
+                                    <div class="mini-stack">
+                                        <div class="mini-code">CLASS SIGNAL / DENNOU GIGAKU</div>
+                                        <div class="mini-signal"></div>
+                                        <div class="mini-copy">DJ EVENT<br>CULTURE PROJECT</div>
+                                    </div>
+                                    <div class="mini-label">LINEUP / 予定</div>
+                                </div>
+                            </div>
+                            <div class="event-main">
+                                <div class="event-date">10.10</div>
+                                <div class="event-venue">RiG @ R4F</div>
+                                <div class="event-time">13:00 - 18:30</div><span class="status pending">LINEUP /
+                                    予定</span>
+                            </div>
+                        </div>
+                        <div class="event-info">
+                            <div class="info-row"><b>ENTRANCE</b><span>¥2,000（2D付）</span></div>
+                            <div class="info-row"><b>ADDRESS</b><span>東京都港区六本木3-15-22 陽光セントラルビル4F</span></div>
+                            <div class="lineup-block">
+                                <div class="lineup-title">LINEUP（予定）</div>
+                                <p class="lineup">Fraiz / taki / だい / れ / ULTRA BREAD / エガシティ / ニラサキ / T@kuz0 / メカク /
+                                    電波少年 / GONE</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="event-card reveal">
+                        <div class="event-head">
+                            <div class="event-visual">
+                                <div class="flyer-mini">
+                                    <div class="mini-brand"><img src="/assets/logo.svg" alt=""></div>
+                                    <div class="mini-stack">
+                                        <div class="mini-code">CLASS SIGNAL / DENNOU GIGAKU</div>
+                                        <div class="mini-signal"></div>
+                                        <div class="mini-copy">DJ EVENT<br>CULTURE PROJECT</div>
+                                    </div>
+                                    <div class="mini-label">DJ募集中</div>
+                                </div>
+                            </div>
+                            <div class="event-main">
+                                <div class="event-date">11.14</div>
+                                <div class="event-venue">ドライブイン電電</div>
+                                <div class="event-time">17:30 - 23:00</div><span class="status pending">DJ募集中</span>
+                            </div>
+                        </div>
+                        <div class="event-info">
+                            <div class="info-row"><b>ADDRESS</b><span>東京都台東区浅草1丁目1-12 浅草地下街B1 16号室</span></div>
+                            <div class="lineup-block">
+                                <div class="lineup-title">CONFIRMED LINEUP</div>
+                                <p class="lineup">Leekbeat / だい / CIRER CORGI / Fraiz / GONE</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section id="origin" class="section origin">
+            <div class="wrap">
+                <div class="eyebrow reveal">03 / ORIGIN</div>
+                <div class="origin-shell reveal">
+                    <div class="origin-content">
+                        <div class="origin-code">ORIGIN / ACCESS RESTRICTED</div>
+                        <div class="origin-title">RETURN<br>TO ORIGIN</div>
+                        <div class="origin-copy">
+                            <p><strong>すべては、あの場所から始まった。</strong></p>
+                            <p>音が鳴り、人が集まり、<br>そこから電脳義学は生まれた。</p>
+                            <p>そして、再び原点へ。</p>
+                            <p>次の開講情報は、まだ開示されていない。</p>
+                            <p class="mono" style="color:var(--green);letter-spacing:.16em">COMING SOON</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="wanted" class="section">
+            <div class="wrap">
+                <div class="eyebrow reveal">04 / DJ WANTED</div>
+                <h2 class="section-title reveal">出演者募集</h2>
+                <div class="wanted-grid">
+                    <div class="wanted-copy reveal">
+                        <p><strong style="color:#fff;font-size:1.2rem">電脳義学では、出演DJを随時募集しています。</strong></p>
+                        <p>初心者の方も歓迎しています。現場で経験を積みたい方、新しい一歩を踏み出したい方、ぜひご参加ください。</p>
+                        <div class="rule">
+                            <div class="rule-no">01</div>
+                            <div>初心者歓迎</div>
+                        </div>
+                        <div class="rule">
+                            <div class="rule-no">02</div>
+                            <div>基本操作を含め、一度でもDJ機材に触れた経験のある方が対象です。</div>
+                        </div>
+                        <div class="rule">
+                            <div class="rule-no">03</div>
+                            <div>出演条件やイベントの詳細を聞きたい方は、公式XのDMまでお問い合わせください。</div>
+                        </div>
+                    </div>
+                    <aside class="wanted-panel reveal">
+                        <div>
+                            <div class="eyebrow">CONNECT / OFFICIAL X</div><strong>次の現場へ接続する。</strong>
+                            <p style="color:#aab3aa">出演相談・詳細確認はDMから受け付けています。</p>
+                        </div><a class="btn primary" href="https://x.com/dennougigaku" target="_blank"
+                            rel="noopener">公式XからDMする ↗</a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="wrap">
+                <div class="eyebrow reveal">05 / GOODS</div>
+                <div class="goods-box reveal">
+                    <div>
+                        <div class="goods-big">GOODS<br>COMING SOON</div>
+                        <div class="mono" style="color:var(--green)">TARGET / 2026.11</div>
+                    </div>
+                    <p class="goods-note">電脳義学のプロジェクトグッズを準備中。現物公開・販売情報は、準備が整い次第お知らせします。</p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="wrap">
+                <div class="eyebrow reveal">06 / CONNECT</div>
+                <h2 class="section-title reveal">公式情報</h2>
+                <div class="social-grid"><a class="social-card reveal" href="https://x.com/dennougigaku" target="_blank"
+                        rel="noopener"><b>電脳義学 公式X ↗</b><span>@dennougigaku / 開催情報・最新告知</span></a><a
+                        class="social-card reveal" href="https://x.com/Gonecy_design" target="_blank"
+                        rel="noopener"><b>主催者 X ↗</b><span>@Gonecy_design / GONE</span></a></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="wrap footer-grid">
+            <div><img class="footer-logo" src="/assets/logo.svg" alt="電脳義学">
+                <div class="mono" style="color:#9aa39a;margin-top:8px">DJ EVENT / CULTURE PROJECT</div>
+            </div>
+            <div class="footer-code mono">SYSTEM STATUS: ONLINE<br>PROJECT ORIGIN: 2026<br>© DENNOU GIGAKU</div>
+        </div>
+    </footer>
+    <script>const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target) } }), { threshold: .10 }); document.querySelectorAll('.reveal').forEach(el => io.observe(el));</script>
 </body>
+
 </html>
