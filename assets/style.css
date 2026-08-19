@@ -77,19 +77,9 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(
-      circle at 14% -8%,
-      rgba(38, 255, 25, 0.09),
-      transparent 32rem
-    ),
-    radial-gradient(
-      circle at 92% 20%,
-      rgba(255, 36, 36, 0.07),
-      transparent 32rem
-    ),
-    var(--bg);
-  font-family:
-    "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
+    radial-gradient(circle at 14% -8%, rgba(38, 255, 25, 0.09), transparent 32rem),
+    radial-gradient(circle at 92% 20%, rgba(255, 36, 36, 0.07), transparent 32rem), var(--bg);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -102,31 +92,11 @@ body::before {
   z-index: -1;
   opacity: 0.75;
   background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(38, 255, 25, 0.08),
-      transparent 18rem
-    ),
-    radial-gradient(
-      circle at 80% 15%,
-      rgba(255, 36, 36, 0.06),
-      transparent 20rem
-    ),
-    radial-gradient(
-      circle at 60% 78%,
-      rgba(38, 255, 25, 0.05),
-      transparent 16rem
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(38, 255, 25, 0.035) 0 1px,
-      transparent 1px 72px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(38, 255, 25, 0.025) 0 1px,
-      transparent 1px 72px
-    );
+    radial-gradient(circle at 20% 20%, rgba(38, 255, 25, 0.08), transparent 18rem),
+    radial-gradient(circle at 80% 15%, rgba(255, 36, 36, 0.06), transparent 20rem),
+    radial-gradient(circle at 60% 78%, rgba(38, 255, 25, 0.05), transparent 16rem),
+    repeating-linear-gradient(90deg, rgba(38, 255, 25, 0.035) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(0deg, rgba(38, 255, 25, 0.025) 0 1px, transparent 1px 72px);
   transform: translate3d(0, 0, 0);
   animation: gridDrift 24s linear infinite alternate;
 }
@@ -138,12 +108,7 @@ body::after {
   pointer-events: none;
   z-index: 99;
   opacity: 0.07;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0,
-    transparent 3px,
-    #fff 4px
-  );
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, #fff 4px);
   mix-blend-mode: overlay;
   animation: scanFlicker 8s steps(2) infinite;
 }
@@ -260,12 +225,7 @@ header {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(
-      90deg,
-      rgba(5, 7, 5, 0.99),
-      rgba(5, 7, 5, 0.82) 56%,
-      rgba(5, 7, 5, 0.66)
-    ),
+    linear-gradient(90deg, rgba(5, 7, 5, 0.99), rgba(5, 7, 5, 0.82) 56%, rgba(5, 7, 5, 0.66)),
     linear-gradient(rgba(38, 255, 25, 0.024) 1px, transparent 1px),
     linear-gradient(90deg, rgba(38, 255, 25, 0.024) 1px, transparent 1px);
   background-size:
@@ -347,11 +307,7 @@ header {
   width: min(100%, 460px);
   justify-self: end;
   border: 1px solid rgba(38, 255, 25, 0.38);
-  background: linear-gradient(
-    145deg,
-    rgba(12, 16, 12, 0.96),
-    rgba(5, 7, 5, 0.94)
-  );
+  background: linear-gradient(145deg, rgba(12, 16, 12, 0.96), rgba(5, 7, 5, 0.94));
   box-shadow:
     0 30px 100px rgba(0, 0, 0, 0.55),
     var(--shadow-g);
@@ -438,11 +394,7 @@ header {
 
   .event-card {
     border: 1px solid rgba(255, 255, 255, 0.11);
-    background: linear-gradient(
-      145deg,
-      rgba(13, 16, 13, 0.96),
-      rgba(6, 8, 6, 0.96)
-    );
+    background: linear-gradient(145deg, rgba(13, 16, 13, 0.96), rgba(6, 8, 6, 0.96));
     overflow: hidden;
     position: relative;
 
@@ -489,11 +441,7 @@ header {
 .flyer-mini {
   height: 100%;
   position: relative;
-  background: linear-gradient(
-    145deg,
-    rgba(0, 0, 0, 0.95),
-    rgba(9, 12, 9, 0.98)
-  );
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.95), rgba(9, 12, 9, 0.98));
   padding: 14px;
   display: flex;
   flex-direction: column;
@@ -548,11 +496,7 @@ header {
   height: 72px;
   border: 1px solid rgba(38, 255, 25, 0.24);
   position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(38, 255, 25, 0.05),
-    rgba(255, 36, 36, 0.02)
-  );
+  background: linear-gradient(180deg, rgba(38, 255, 25, 0.05), rgba(255, 36, 36, 0.02));
   overflow: hidden;
 }
 
@@ -563,12 +507,7 @@ header {
   right: 10px;
   top: 16px;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(38, 255, 25, 0.85),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(38, 255, 25, 0.85), transparent);
   box-shadow:
     0 16px 0 rgba(255, 36, 36, 0.7),
     0 32px 0 rgba(38, 255, 25, 0.55);
@@ -583,11 +522,7 @@ header {
   right: 10px;
   bottom: -16px;
   transform: rotate(45deg);
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 36, 36, 0.16),
-    transparent 65%
-  );
+  background: radial-gradient(circle at 30% 30%, rgba(255, 36, 36, 0.16), transparent 65%);
 }
 
 .flyer-mini .mini-copy {
@@ -720,11 +655,7 @@ header {
   position: relative;
   text-align: center;
   background:
-    radial-gradient(
-      circle at center,
-      rgba(38, 255, 25, 0.08),
-      transparent 28rem
-    ),
+    radial-gradient(circle at center, rgba(38, 255, 25, 0.08), transparent 28rem),
     linear-gradient(145deg, rgba(10, 13, 10, 0.97), rgba(3, 5, 3, 0.98));
 }
 
@@ -827,11 +758,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(
-      145deg,
-      rgba(38, 255, 25, 0.055),
-      rgba(255, 36, 36, 0.035)
-    );
+    background: linear-gradient(145deg, rgba(38, 255, 25, 0.055), rgba(255, 36, 36, 0.035));
 
     strong {
       font-size: 1.5rem;
@@ -984,11 +911,7 @@ footer {
 
 .real-flyer {
   padding: 16px;
-  background: linear-gradient(
-    145deg,
-    rgba(38, 255, 25, 0.025),
-    rgba(255, 36, 36, 0.018)
-  );
+  background: linear-gradient(145deg, rgba(38, 255, 25, 0.025), rgba(255, 36, 36, 0.018));
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -1001,11 +924,7 @@ footer {
 
 .real-mini {
   padding: 12px 12px 12px 16px;
-  background: linear-gradient(
-    145deg,
-    rgba(38, 255, 25, 0.035),
-    rgba(0, 0, 0, 0.96)
-  );
+  background: linear-gradient(145deg, rgba(38, 255, 25, 0.035), rgba(0, 0, 0, 0.96));
 }
 
 .real-mini img {

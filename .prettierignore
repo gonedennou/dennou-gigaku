@@ -1,0 +1,9 @@
+node_modules
+.vercel
+.deploy-trigger
+package-lock.json
+assets/*.jpg
+assets/*.png
+assets/*.jpeg
+assets/*.webp
+assets/*.gif

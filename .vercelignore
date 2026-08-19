@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+node_modules
+README.md
+.prettierignore
+.prettierrc.json
+package.json
+package-lock.json
+.deploy-trigger

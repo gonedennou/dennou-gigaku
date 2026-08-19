@@ -1,0 +1,24 @@
+{
+  "name": "dennou-gigaku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gonedennou/dennou-gigaku.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gonedennou/dennou-gigaku/issues"
+  },
+  "homepage": "https://github.com/gonedennou/dennou-gigaku#readme",
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  }
+}
