@@ -732,9 +732,17 @@ header {
         border-left-color: var(--green);
       }
     }
+
+    &:focus-within {
+      border-color: var(--green);
+      .event-head {
+        border-left-color: var(--green);
+      }
+    }
   }
 
   .event-head {
+    cursor: pointer;
     position: relative;
 
     display: flex;
@@ -773,7 +781,6 @@ header {
         SFMono-Regular,
         Menlo,
         monospace;
-      cursor: pointer;
       -webkit-user-select: none;
       user-select: none;
       transition: transform 0.24s ease;
@@ -801,11 +808,6 @@ header {
 
     .event-toggle::after {
       transform: translate(-50%, -50%) rotate(90deg);
-    }
-
-    .event-toggle:focus-visible {
-      outline: 1px solid var(--green);
-      outline-offset: 3px;
     }
 
     &::before,

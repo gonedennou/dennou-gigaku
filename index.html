@@ -196,12 +196,12 @@
         </p>
         <div class="event-grid">
           <article class="event-card reveal">
-            <div class="event-head">
+            <div class="event-head" aria-label="詳細を開く" role="button" tabindex="0" aria-expanded="false">
               <div class="event-number">01</div>
               <div class="event-schedule">06.27</div>
               <div class="event-venue">RiG @ R4F</div>
               <span class="archived-label">ARCHIVED</span>
-              <span class="event-toggle" role="button" tabindex="0" aria-label="詳細を開く" aria-expanded="false"></span>
+              <span class="event-toggle"></span>
             </div>
             <div class="event-info">
               <div class="flyer">
@@ -234,12 +234,12 @@
             </div>
           </article>
           <article class="event-card reveal">
-            <div class="event-head">
+            <div class="event-head" aria-label="詳細を開く" role="button" tabindex="0" aria-expanded="false">
               <div class="event-number">02</div>
               <div class="event-schedule">07.18</div>
               <div class="event-venue">RiG @ R4F</div>
               <span class="archived-label">ARCHIVED</span>
-              <span class="event-toggle" role="button" tabindex="0" aria-label="詳細を開く" aria-expanded="false"></span>
+              <span class="event-toggle"></span>
             </div>
             <div class="event-info">
               <div class="flyer">
@@ -272,12 +272,12 @@
             </div>
           </article>
           <article class="event-card reveal">
-            <div class="event-head">
+            <div class="event-head" aria-label="詳細を開く" role="button" tabindex="0" aria-expanded="false">
               <div class="event-number">03</div>
               <div class="event-schedule">08/11</div>
               <div class="event-venue">高円寺 yakusyu</div>
               <span class="archived-label">ARCHIVED</span>
-              <span class="event-toggle" role="button" tabindex="0" aria-label="詳細を開く" aria-expanded="false"></span>
+              <span class="event-toggle"></span>
             </div>
             <div class="event-info">
               <div class="flyer">
@@ -403,20 +403,21 @@
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 
     document.querySelectorAll("#archive .event-card").forEach((card, index) => {
-      const toggle = card.querySelector(".event-toggle");
+      const icon = card.querySelector(".event-toggle");
+      const eventHeader = card.querySelector(".event-head");
       const info = card.querySelector(".event-info");
-      if (!toggle || !info) return;
+      if (!eventHeader || !info) return;
 
       if (!info.id) {
         info.id = `archive-info-${index + 1}`;
       }
-      toggle.setAttribute("aria-controls", info.id);
+      eventHeader.setAttribute("aria-controls", info.id);
 
       const setOpen = (open) => {
         info.classList.toggle("open", open);
-        toggle.classList.toggle("open", open);
-        toggle.setAttribute("aria-label", open ? "詳細を閉じる" : "詳細を開く");
-        toggle.setAttribute("aria-expanded", String(open));
+        icon?.classList.toggle("open", open);
+        eventHeader.setAttribute("aria-label", open ? "詳細を閉じる" : "詳細を開く");
+        eventHeader.setAttribute("aria-expanded", String(open));
       };
 
       setOpen(info.classList.contains("open"));
@@ -425,12 +426,11 @@
         setOpen(!info.classList.contains("open"));
       };
 
-      toggle.addEventListener("click", (event) => {
-        event.stopPropagation();
+      eventHeader.addEventListener("click", (event) => {
         toggleOpen();
       });
 
-      toggle.addEventListener("keydown", (event) => {
+      eventHeader.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           toggleOpen();
