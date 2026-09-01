@@ -719,6 +719,10 @@ header {
     font-size: 0.7rem;
   }
 
+  .event-card + .event-card {
+    margin-top: 12px;
+  }
+
   .event-card {
     border: 1px solid rgba(255, 255, 255, 0.11);
 
