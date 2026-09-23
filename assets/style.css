@@ -1186,6 +1186,10 @@ footer {
     padding-top: 105px;
   }
 
+  .actions .btn {
+    flex: 1 1 auto;
+  }
+
   #schedule {
     .event-head {
       grid-template-columns: 1fr;
