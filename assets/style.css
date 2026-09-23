@@ -323,7 +323,7 @@ header {
   box-shadow: var(--shadow-g);
 }
 
-.btn.red {
+.btn.secondary {
   border-color: var(--red);
   box-shadow: var(--shadow-r);
 }
@@ -415,13 +415,13 @@ header {
   letter-spacing: 0.2em;
 }
 
-.real-flyer {
+.flyer-large {
   padding: 16px;
   background: linear-gradient(145deg, rgba(38, 255, 25, 0.025), rgba(255, 36, 36, 0.018));
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.real-flyer img {
+.flyer-large img {
   width: 100%;
   height: auto;
   display: block;
@@ -544,7 +544,7 @@ header {
     padding: 14px;
   }
 
-  .real-mini {
+  .flyer-thumb {
     padding: 12px 12px 12px 16px;
     background: linear-gradient(145deg, rgba(38, 255, 25, 0.035), rgba(0, 0, 0, 0.96));
 
@@ -652,24 +652,24 @@ header {
 
 /* ===== Archive ===== */
 #archive {
-  .event-card {
+  .archive-item {
     border: 1px solid rgba(255, 255, 255, 0.11);
 
     &:hover,
     &:focus-within {
       border-color: var(--green);
 
-      .event-head {
+      .archive-head {
         border-left-color: var(--green);
       }
     }
   }
 
-  .event-card + .event-card {
+  .archive-item + .archive-item {
     margin-top: 12px;
   }
 
-  .event-head {
+  .archive-head {
     cursor: pointer;
     position: relative;
     display: flex;
@@ -677,23 +677,23 @@ header {
     border-left: 5px solid transparent;
     padding: 12px 56px 12px 18px; /* 右はトグルボタン用 */
 
-    .event-number {
+    .archive-number {
       color: var(--green);
       font-family: var(--font-mono);
       font-size: var(--fs-xs);
     }
 
-    .event-schedule {
+    .archive-schedule {
       margin-left: 16px;
       font-size: var(--fs-base);
     }
 
-    .event-venue {
+    .archive-venue {
       margin: 0 16px;
       font-size: var(--fs-sm);
     }
 
-    .archived-label {
+    .archive-label {
       margin-left: auto;
       border: 1px solid var(--green);
       color: var(--green);
@@ -701,7 +701,7 @@ header {
       font-size: var(--fs-xs);
     }
 
-    .event-toggle {
+    .archive-toggle {
       position: absolute;
       right: 16px;
       top: 50%;
@@ -712,7 +712,7 @@ header {
       user-select: none;
       transition: transform 0.24s ease;
 
-      &.open {
+      &.is-open {
         transform: translateY(-50%) rotate(45deg);
       }
 
@@ -736,7 +736,7 @@ header {
     }
   }
 
-  .event-info {
+  .archive-info {
     padding: 0 12px;
     margin-top: 0;
     width: 100%;
@@ -773,7 +773,7 @@ header {
       max-width: 640px;
     }
 
-    &.open {
+    &.is-open {
       padding: 0 24px 28px;
       margin-top: 12px;
       max-height: 900px;
@@ -1128,7 +1128,7 @@ footer {
   transition: 0.72s ease;
 }
 
-.reveal.on {
+.reveal.is-visible {
   opacity: 1;
   transform: none;
 }
@@ -1195,7 +1195,7 @@ footer {
       padding: 12px;
     }
 
-    .real-mini img {
+    .flyer-thumb img {
       object-fit: contain;
     }
 
@@ -1217,11 +1217,11 @@ footer {
   }
 
   #archive {
-    .event-info {
+    .archive-info {
       flex-direction: column;
       gap: 20px;
 
-      /* 開講予定カード（.real-mini img）と同じ 194px に揃える */
+      /* 開講予定カード（.flyer-thumb img）と同じ 194px に揃える */
       > :first-child {
         flex: 0 0 auto;
         width: 194px;
@@ -1233,7 +1233,7 @@ footer {
         max-width: none;
       }
 
-      &.open {
+      &.is-open {
         padding: 0 12px 20px;
         max-height: 2000px;
       }
