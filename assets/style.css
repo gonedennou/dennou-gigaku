@@ -196,6 +196,76 @@ a {
   }
 }
 
+/* ===== Utility: zoomable image ===== */
+.zoomable {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+/* ===== Image modal ===== */
+.image-modal {
+  width: fit-content;
+  padding: 0;
+  border: var(--border-green);
+  background: var(--bg);
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(92vw, 1100px);
+    max-height: 88svh;
+  }
+
+  &::backdrop {
+    background: rgba(5, 7, 5, 0.85);
+    backdrop-filter: blur(4px);
+  }
+}
+
+body:has(.image-modal[open]) {
+  overflow: hidden;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: var(--border-green);
+  background: rgba(5, 7, 5, 0.8);
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    border-top: 1px solid var(--white);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &:hover {
+    border-color: var(--green);
+  }
+}
+
 /* ===== Layout ===== */
 .wrap {
   width: min(calc(100% - 40px), var(--max));
