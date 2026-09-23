@@ -960,11 +960,11 @@ header {
       display: block;
     }
 
-    .line-1 {
+    .notify-title {
       font-size: var(--fs-lg);
     }
 
-    .line-2 {
+    .notify-subtitle {
       font-size: var(--fs-base);
     }
   }
@@ -984,6 +984,10 @@ header {
     list-style: none;
 
     li {
+      display: grid;
+    }
+
+    article {
       padding: 32px 24px 24px;
       border: var(--border-gray);
     }
@@ -1262,7 +1266,7 @@ footer {
 
     .goods-list {
       display: block;
-      li {
+      article {
         margin-top: 12px;
       }
     }
