@@ -17,6 +17,14 @@
   --shadow-g: 0 0 28px rgba(38, 255, 25, 0.2);
   --shadow-r: 0 0 26px rgba(255, 36, 36, 0.16);
 
+  /* ===== Glass（固定ヘッダーの半透明背景） ===== */
+  --glass-bg: rgba(5, 7, 5, 0.82);
+  --glass-blur: blur(14px);
+
+  /* ===== Player（固定プレイヤーの透過背景） ===== */
+  --player-bg: rgba(5, 7, 5, 0);
+  --player-blur: blur(10px);
+
   /* ===== Layout ===== */
   --max: 1180px;
 
@@ -266,6 +274,33 @@ body:has(.image-modal[open]) {
   }
 }
 
+/* ===== SoundCloud Player ===== */
+.sc-player {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 70;
+  width: min(650px, calc(100% - 40px));
+  padding: 0 16px 16px;
+  border: 1px solid var(--green);
+  border-bottom-width: 4px;
+  background: var(--player-bg);
+  backdrop-filter: var(--player-blur);
+  box-shadow: var(--shadow-g);
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 166px;
+    border: 0;
+  }
+}
+
+.sc-player-title {
+  padding: 8px 0;
+  line-height: 1.4;
+}
+
 /* ===== Layout ===== */
 .wrap {
   width: min(calc(100% - 40px), var(--max));
@@ -328,8 +363,8 @@ header {
   left: 0;
   right: 0;
   z-index: 80;
-  background: rgba(5, 7, 5, 0.82);
-  backdrop-filter: blur(14px);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid rgba(38, 255, 25, 0.14);
 }
 
@@ -1164,7 +1199,8 @@ header {
 /* ===== Footer ===== */
 footer {
   border-top: 1px solid rgba(38, 255, 25, 0.14);
-  padding: 38px 0 52px;
+  /* 固定プレイヤーにフッターが隠れないよう、プレイヤーの高さ分の余白を足す */
+  padding: 38px 0 calc(52px + 246px);
 }
 
 .footer-grid {
@@ -1367,5 +1403,13 @@ footer {
 
   .footer-code {
     margin-top: 18px;
+  }
+
+  .sc-player {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    box-shadow: none;
   }
 }
