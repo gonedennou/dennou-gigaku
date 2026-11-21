@@ -526,13 +526,9 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* 縦長（A4）のフライヤーでもカードが伸びすぎないよう、正方形時と同じ高さで止めて中央寄せ */
 .flyer-large img {
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  max-height: 428px;
-  margin-inline: auto;
   display: block;
   border: 1px solid rgba(38, 255, 25, 0.16);
 }
