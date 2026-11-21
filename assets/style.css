@@ -596,6 +596,13 @@ header {
       color: #fff;
       font-size: 1.07em;
     }
+
+    .about-note {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.8em;
+      color: var(--muted);
+    }
   }
 }
 
