@@ -3,7 +3,6 @@
   --white: #fff;
   --bg: #050705;
   --panel: #090c09;
-  --panel2: #0d100d;
   --ink: #f2f4f2;
   --muted: #9ba49b;
   --text-sub: #bbc2bb;
@@ -20,10 +19,6 @@
   /* ===== Glass（固定ヘッダーの半透明背景） ===== */
   --glass-bg: rgba(5, 7, 5, 0.82);
   --glass-blur: blur(14px);
-
-  /* ===== Player（固定プレイヤーの透過背景） ===== */
-  --player-bg: rgba(5, 7, 5, 0);
-  --player-blur: blur(10px);
 
   /* ===== Layout ===== */
   --max: 1180px;
@@ -272,33 +267,6 @@ body:has(.image-modal[open]) {
   &:hover {
     border-color: var(--green);
   }
-}
-
-/* ===== SoundCloud Player ===== */
-.sc-player {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 70;
-  width: min(650px, calc(100% - 40px));
-  padding: 0 16px 16px;
-  border: 1px solid var(--green);
-  border-bottom-width: 4px;
-  background: var(--player-bg);
-  backdrop-filter: var(--player-blur);
-  box-shadow: var(--shadow-g);
-
-  iframe {
-    display: block;
-    width: 100%;
-    height: 166px;
-    border: 0;
-  }
-}
-
-.sc-player-title {
-  padding: 8px 0;
-  line-height: 1.4;
 }
 
 /* ===== Layout ===== */
@@ -1125,18 +1093,6 @@ header {
     color: var(--text-sub);
   }
 
-  .goods-coming {
-    display: inline-block;
-    margin-top: 12px;
-    padding: 4px 8px;
-    border: 1px solid var(--muted);
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-weight: 800;
-    font-size: var(--fs-xs);
-    letter-spacing: 0.1em;
-  }
-
   .visitor-gift {
     display: grid;
     grid-template-columns: 1fr 360px;
@@ -1206,8 +1162,7 @@ header {
 /* ===== Footer ===== */
 footer {
   border-top: 1px solid rgba(38, 255, 25, 0.14);
-  /* 固定プレイヤーにフッターが隠れないよう、プレイヤーの高さ分の余白を足す */
-  padding: 38px 0 calc(52px + 246px);
+  padding: 38px 0 52px;
 }
 
 .footer-grid {
@@ -1410,13 +1365,5 @@ footer {
 
   .footer-code {
     margin-top: 18px;
-  }
-
-  .sc-player {
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    box-shadow: none;
   }
 }
